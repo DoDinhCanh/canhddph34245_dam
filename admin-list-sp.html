@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="./public/css/admin.css" />
+  </head>
+  <body>
+    <div class="sidebar">
+      <h2>DICAN STORE ADMIN</h2>
+      <ul>
+        <li>
+          <a href="#" class="tab-link active" data-tab="products"
+            >Quản lý Sản phẩm</a
+          >
+        </li>
+        <li>
+          <a href="#" class="tab-link" data-tab="categories">Danh mục</a>
+        </li>
+        <li><a href="#" class="tab-link" data-tab="users">Người dùng</a></li>
+        <li><a href="#" class="tab-link" data-tab="stats">Thống kê</a></li>
+      </ul>
+    </div>
+
+    <div class="main-content">
+      <div class="tab-content active" id="products">
+        <div class="container">
+          <h2>Quản lý sản phẩm</h2>
+          <div class="btn-add">
+            <a href="admin-form.html"><button>+ Thêm danh mục</button></a>
+          </div>
+          <table class="category-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Description</th>
+                <th>Image</th>
+                <th>Category</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>Quàn Kaki Túi Hộp</td>
+                <td>199.000</td>
+                <td>Quần kaki túi hộp thoải mái</td>
+                <td><img src="./public/img/3.png" alt="Quần" /></td>
+                <td>Quần Sooc</td>
+                <td>
+                  <button class="edit-btn">Sửa</button>
+                  <button class="delete-btn">Xóa</button>
+                </td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Quần Kaki</td>
+                <td>199.000</td>
+                <td>Quần kaki đi chơi</td>
+                <td><img src="./public/img/4.png" alt="Quần" /></td>
+                <td>Quần Sooc</td>
+                <td>
+                  <button class="edit-btn">Sửa</button>
+                  <button class="delete-btn">Xóa</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const tabLinks = document.querySelectorAll(".tab-link");
+      const tabContents = document.querySelectorAll(".tab-content");
+
+      tabLinks.forEach((link) => {
+        link.addEventListener("click", (e) => {
+          e.preventDefault();
+
+          // remove active
+          tabLinks.forEach((link) => link.classList.remove("active"));
+          tabContents.forEach((tab) => tab.classList.remove("active"));
+
+          // add active
+          link.classList.add("active");
+          document.getElementById(link.dataset.tab).classList.add("active");
+        });
+      });
+    </script>
+  </body>
+</html>
