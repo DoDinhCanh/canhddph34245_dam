@@ -63,10 +63,10 @@
       <h2 class="fw-bold mb-4 text-center">DICAN STORE<br>ADMIN</h2>
       <ul class="nav flex-column gap-2">
         <li class="nav-item">
-          <a href="#" class="nav-link active text-white sidebar-link">Quản lý Sản phẩm</a>
+          <a href="?mode=admin" class="nav-link active text-white sidebar-link">Quản lý Sản phẩm</a>
         </li>
         <li class="nav-item">
-          <a href="#" class="nav-link text-white sidebar-link">Danh mục</a>
+          <a href="?mode=admin&action=list-category" class="nav-link text-white sidebar-link">Danh mục</a>
         </li>
         <li class="nav-item">
           <a href="#" class="nav-link text-white sidebar-link">Người dùng</a>

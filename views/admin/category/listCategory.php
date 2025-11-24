@@ -1,7 +1,7 @@
 <div class="tab-content active" id="products">
   <div class="d-flex flex-column mb-3">
-  <h2 class="fw-bold mt-3 text-center">Quản Lý Sản Phẩm</h2>
-  <a href="admin-form.html" class="btn btn-primary mt-2">+ Thêm sản phẩm</a>
+  <h2 class="fw-bold mt-3 text-center">Quản lý Danh Mục</h2>
+  <a href="admin-form.html" class="btn btn-primary mt-2">+ Thêm danh mục</a>
 </div>
   <div class="card shadow rounded p-4 mb-4">
     <div class="table-responsive">
@@ -10,24 +10,18 @@
           <tr>
             <th>ID</th>
             <th>Name</th>
-            <th>Price</th>
-            <th>Description</th>
             <th>Image</th>
-            <th>Category</th>
             <th>Status</th>
           </tr>
         </thead>
         <tbody>
-          <?php foreach($data as $pro): ?>
+          <?php foreach($cate as $category): ?>
           <tr>
-            <td><?= $pro["id"] ?></td>
-            <td><?= $pro["name"] ?></td>
-            <td><?= $pro["price"] ?></td>
-            <td><?= $pro["description"] ?></td>
+            <td><?= $category["id"] ?></td>
+            <td><?= $category["name"] ?></td>
             <td>
-              <img src="<?= BASE_ASSETS_UPLOADS . $pro['image'] ?>" class="product-img" alt="Quần" />
+              <img src="<?= BASE_ASSETS_UPLOADS . $category['image'] ?>" class="product-img" alt="Quần" />
             </td>
-            <td>Quần Sooc</td>
             <td>
               <div class="d-flex gap-2 justify-content-center">
                 <button class="btn btn-success btn-sm">Sửa</button>
