@@ -9,7 +9,7 @@ class CategoryController {
     public function index() {
         $view = 'category/listCategory';
         $title = '';
-        $cate = $this->categoryModel->getAll();
+        $data = $this->categoryModel->getAll();
         require_once PATH_VIEW_ADMIN_MAIN;
     }
 }

@@ -69,7 +69,10 @@
           <a href="?mode=admin&action=list-category" class="nav-link text-white sidebar-link">Danh mục</a>
         </li>
         <li class="nav-item">
-          <a href="#" class="nav-link text-white sidebar-link">Người dùng</a>
+          <a href="?mode=admin&action=list-user" class="nav-link text-white sidebar-link">Người dùng</a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link text-white sidebar-link">Bình luận</a>
         </li>
         <li class="nav-item">
           <a href="#" class="nav-link text-white sidebar-link">Thống kê</a>
