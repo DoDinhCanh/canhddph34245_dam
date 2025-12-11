@@ -27,7 +27,7 @@
             <td>
               <img src="<?= BASE_ASSETS_UPLOADS . $pro['image']?>" alt="" width="50">
             </td>
-            <td>Quần Sooc</td>
+            <td><?= $pro["category_id"] ?></td>
             <td>
               <div class="d-flex gap-2 justify-content-center">
                 <a href="<?= BASE_URL_ADMIN . '&action=show-product&id=' . $pro["id"] ?>" class="btn btn-primary btn-sm">Xem</a>

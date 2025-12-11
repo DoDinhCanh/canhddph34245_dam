@@ -17,8 +17,9 @@ match ($action) {
 
     // Danh Mục
     'list-category' => (new CategoryController)->index(),
-    'delete-category' => '',
-    'add-category' => '',
+    'delete-category' => (new CategoryController)->delete(),
+    'add-category' => (new CategoryController)->add(),
+    'store-category' => (new CategoryController)->store(),
     'edit-category' => '', //Hiển thị form sửa
     'update-category' => '',
 
