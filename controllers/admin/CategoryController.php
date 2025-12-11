@@ -56,5 +56,45 @@ class CategoryController {
         header('Location:' .BASE_URL_ADMIN .'&action=list-category');
         exit();
     }
+
+    public function edit() {
+        if (!isset($_GET['id'])) {
+            header("Location: index.php?mode=admin&action=list-category&error=Thiếu ID");
+            exit;
+        }
+
+        $id       = $_GET['id'];
+        $category = $this->categoryModel->find($id);
+
+        if (!$category) {
+            header("Location: index.php?mode=admin&action=list-category&error=Không tìm thấy danh mục");
+            exit;
+        }
+
+        $view  = 'category/updateCategory';
+        $title = 'Sửa danh mục';
+        $data  = ['category' => $category];
+        require_once PATH_VIEW_ADMIN_MAIN;
+    }
+
+    public function update() {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $id   = $_POST['id'];
+            $name = $_POST['name'];
+
+            $image = null;
+            if (!empty($_FILES['image']['name'])) {
+                $fileName   = time() . '_' . $_FILES['image']['name'];
+                $targetPath = PATH_ASSETS_UPLOADS . $fileName;
+                move_uploaded_file($_FILES['image']['tmp_name'], $targetPath);
+                $image = $fileName;
+            }
+
+            $this->categoryModel->update($id, $name, $image);
+
+            header("Location: index.php?mode=admin&action=list-category&success=Cập nhật thành công");
+            exit;
+        }
+    }
 }
  ?>

@@ -12,16 +12,16 @@ match ($action) {
     'show-product' => '',
     'add-product' => (new ProductController)->add(),
     'store-product' => (new ProductController)->store(), // Lưu thông tin vào csdl
-    'edit-product' => '', //Hiển thị form sửa
-    'update-product' => '',
+    'edit-product' => (new ProductController)->edit(), //Hiển thị form sửa
+    'update-product' => (new ProductController)->update(),
 
     // Danh Mục
     'list-category' => (new CategoryController)->index(),
     'delete-category' => (new CategoryController)->delete(),
     'add-category' => (new CategoryController)->add(),
     'store-category' => (new CategoryController)->store(),
-    'edit-category' => '', //Hiển thị form sửa
-    'update-category' => '',
+    'edit-category' => (new CategoryController)->edit(), //Hiển thị form sửa
+    'update-category' => (new CategoryController)->update(),
 
     // Người dùng
     'list-user' => (new UserController)->index(),

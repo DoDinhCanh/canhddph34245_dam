@@ -60,7 +60,51 @@ class ProductController {
         header('Location:' .BASE_URL_ADMIN .'&action=list-product');
         exit();
     }
-}
+    
+    public function edit() {
+        if (!isset($_GET['id'])) {
+            header("Location: index.php?mode=admin&action=list-product&error=Thiếu ID");
+            exit;
+        }
 
+        $id        = $_GET['id'];
+        $product   = $this->productModel->find($id);
+        $categories = $this->categoryModel->getAll();
+
+        if (!$product) {
+            header("Location: index.php?mode=admin&action=list-product&error=Không tìm thấy sản phẩm");
+            exit;
+        }
+
+        $view  = 'product/updateProduct';
+        $title = 'Sửa sản phẩm';
+        $data  = ['product' => $product, 'category' => $categories];
+        require_once PATH_VIEW_ADMIN_MAIN;
+    }
+
+    public function update() {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $id          = $_POST['id'];
+            $name        = $_POST['name'];
+            $price       = $_POST['price'];
+            $description = $_POST['description'];
+            $category_id = $_POST['category_id'];
+
+            $image = null;
+            if (!empty($_FILES['image']['name'])) {
+                $fileName   = time() . '_' . $_FILES['image']['name'];
+                $targetPath = PATH_ASSETS_UPLOADS . $fileName;
+                move_uploaded_file($_FILES['image']['tmp_name'], $targetPath);
+                $image = $fileName;
+            }
+
+            $this->productModel->update($id, $name, $price, $description, $image, $category_id);
+
+            header("Location: index.php?mode=admin&action=list-product&success=Cập nhật thành công");
+            exit;
+        }
+    }
+
+}
 
 ?>

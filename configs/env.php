@@ -11,9 +11,9 @@ define('PATH_VIEW_ADMIN',         PATH_ROOT . 'views/admin/');
 define('PATH_VIEW_CLIENT_MAIN',    PATH_ROOT . 'views/client/main.php');
 define('PATH_VIEW_ADMIN_MAIN',    PATH_ROOT . 'views/admin/main.php');
 
-define('BASE_ASSETS_UPLOADS',   BASE_URL . 'assets/uploads/');
+define('BASE_ASSETS_UPLOADS',   BASE_URL . 'public/upload/');
 
-define('PATH_ASSETS_UPLOADS',   PATH_ROOT . 'assets/uploads/');
+define('PATH_ASSETS_UPLOADS',   PATH_ROOT . 'public/upload/');
 
 define('PATH_CONTROLLER_CLIENT',       PATH_ROOT . 'controllers/client/');
 define('PATH_CONTROLLER_ADMIN',       PATH_ROOT . 'controllers/admin/');

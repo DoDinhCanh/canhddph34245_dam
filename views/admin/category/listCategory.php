@@ -24,7 +24,7 @@
             </td>
             <td>
               <div class="d-flex gap-2 justify-content-center">
-                <a href="" class="btn btn-success btn-sm">Sửa</a >
+                <a href="<?= BASE_URL_ADMIN . '&action=edit-category&id=' . $category["id"] ?>" class="btn btn-success btn-sm">Sửa</a>
                 <a href="<?= BASE_URL_ADMIN . '&action=delete-category&id=' . $category["id"] ?>"
                 onclick="return confirm('Ban chac chua ?');" class="btn btn-danger btn-sm">Xóa</a>
               </div>

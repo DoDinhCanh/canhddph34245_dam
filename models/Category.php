@@ -28,4 +28,15 @@ class Category extends BaseModel
         $stmt= $this->pdo->prepare($sql);
         $stmt->execute();
     }
+    public function update($id, $name, $image = null) {
+        if (!empty($image)) {
+            $sql  = "UPDATE category SET name = ?, image = ? WHERE id = ?";
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute([$name, $image, $id]);
+        } else {
+            $sql  = "UPDATE category SET name = ? WHERE id = ?";
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute([$name, $id]);
+        }
+    }
 }

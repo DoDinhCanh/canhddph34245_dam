@@ -29,4 +29,20 @@ class Product extends BaseModel
         $stmt= $this->pdo->prepare($sql);
         $stmt->execute();
     }
+
+    public function update($id, $name, $price, $description, $image = null, $category_id) {
+        if (!empty($image)) {
+            $sql  = "UPDATE product 
+                     SET name = ?, price = ?, description = ?, image = ?, category_id = ? 
+                     WHERE id = ?";
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute([$name, $price, $description, $image, $category_id, $id]);
+        } else {
+            $sql  = "UPDATE product 
+                     SET name = ?, price = ?, description = ?, category_id = ? 
+                     WHERE id = ?";
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute([$name, $price, $description, $category_id, $id]);
+        }
+    }
 }
