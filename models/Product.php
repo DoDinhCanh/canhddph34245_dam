@@ -45,4 +45,11 @@ class Product extends BaseModel
             $stmt->execute([$name, $price, $description, $category_id, $id]);
         }
     }
+
+    public function top4new() {
+        $sql = "SELECT * FROM product ORDER BY ID DESC LIMIT 4";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
 }

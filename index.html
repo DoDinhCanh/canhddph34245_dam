@@ -2,168 +2,342 @@
 <html lang="vi">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>DICAN STORE</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./public/css/index.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      body {
+        font-family: "Roboto", sans-serif;
+      }
+
+      .navbar-brand img {
+        height: 90px;
+      }
+
+      .banner img {
+        width: 100%;
+        max-height: 400px;
+        object-fit: cover;
+        display: block;
+      }
+
+      .category-item {
+        text-align: center;
+      }
+      .category-item img {
+        width: 120px;
+        height: 120px;
+        object-fit: cover;
+      }
+      .category-item p {
+        margin-top: 8px;
+        font-weight: 500;
+      }
+
+      .product-card img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+      }
+      .product-card .price {
+        font-weight: 600;
+        color: #000;
+      }
+
+      .footer-bottom {
+        border-top: 1px solid #e9ecef;
+        padding: 16px 0;
+        text-align: center;
+        font-size: 14px;
+      }
+    </style>
   </head>
   <body>
-    <header class="header">
-      <div class="logo">
-        <a href="#">
+    <nav class="navbar navbar-expand-lg bg-light">
+      <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="#">
           <img src="./public/img/logo.png" alt="AE Boutique Logo" />
         </a>
-      </div>
-      <nav class="nav">
-        <a href="#">TRANG CHỦ</a>
-        <a href="#">SẢN PHẨM</a>
-        <a href="#">DANH MỤC</a>
-        <a href="#">PHỤ KIỆN</a>
-        <a href="#">LIÊN HỆ</a>
-      </nav>
-      <div class="icons">
-        <span>🛒</span>
-        <span>🔍</span>
-        <div class="user-dropdown">
-          <span class="user-icon">👤</span>
-          <div class="dropdown-menu">
-            <a href="#">✏️ Chỉnh sửa tài khoản</a>
-            <a href="#">🔑 Đăng nhập</a>
-            <a href="#">🚪 Đăng xuất</a>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#mainNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainNav">
+          <ul class="navbar-nav ms-auto me-3">
+            <li class="nav-item"><a class="nav-link" href="#">TRANG CHỦ</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">SẢN PHẨM</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">DANH MỤC</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">PHỤ KIỆN</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">LIÊN HỆ</a></li>
+          </ul>
+
+          <div class="d-flex align-items-center gap-3">
+            <span id="search-icon" role="button">🔍</span>
+            <input
+              type="text"
+              id="search-input"
+              class="form-control d-none"
+              placeholder="Tìm sản phẩm..."
+              style="width: 200px"
+            />
+            <div class="dropdown">
+              <button
+                class="btn btn-outline-secondary btn-sm dropdown-toggle d-flex align-items-center"
+                type="button"
+                data-bs-toggle="dropdown"
+              >
+                👤
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li>
+                  <a class="dropdown-item" href="#">✏️ Chỉnh sửa tài khoản</a>
+                </li>
+                <li><a class="dropdown-item" href="#">🔑 Đăng nhập</a></li>
+                <li><a class="dropdown-item" href="#">🚪 Đăng xuất</a></li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
-    </header>
+    </nav>
 
     <section class="banner">
-      <div class="main-banner">
-        <img src="./public/img/banner.webp" alt="Banner chính" />
-      </div>
+      <img
+        src="./public/img/banner.webp"
+        alt="Banner chính"
+        class="img-fluid"
+      />
     </section>
 
-    <section class="categories">
-      <h2>Danh mục sản phẩm</h2>
-      <div class="category-list">
-        <div>
-          <img src="./public/img/2.png" alt="" />
-          <p>Áo phông</p>
+    <section class="container my-5">
+      <h2 class="text-center mb-4">Danh mục sản phẩm</h2>
+      <div class="row g-4 justify-content-center">
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+          <div class="category-item">
+            <img src="./public/img/2.png" alt="Áo phông" class="img-fluid" />
+            <p>Áo phông</p>
+          </div>
         </div>
-        <div>
-          <img src="./public/img/3.png" alt="" />
-          <p>Áo Polo</p>
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+          <div class="category-item">
+            <img src="./public/img/3.png" alt="Áo Polo" class="img-fluid" />
+            <p>Áo Polo</p>
+          </div>
         </div>
-        <div>
-          <img src="./public/img/4.png" alt="" />
-          <p>Sơ mi</p>
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+          <div class="category-item">
+            <img src="./public/img/4.png" alt="Sơ mi" class="img-fluid" />
+            <p>Sơ mi</p>
+          </div>
         </div>
-        <div>
-          <img src="./public/img/5.png" alt="" />
-          <p>Quần short</p>
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+          <div class="category-item">
+            <img src="./public/img/5.png" alt="Quần short" class="img-fluid" />
+            <p>Quần short</p>
+          </div>
         </div>
-        <div>
-          <img src="./public/img/2.png" alt="" />
-          <p>Túi</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="products">
-      <h2>Sản Phẩm</h2>
-      <div class="product-list">
-        <div class="product">
-          <a href="#">
-            <img src="./public/img/2.png" alt="" />
-            <p>Quần short kaki</p>
-            <span class="price">389.000 ₫</span></a
-          >
-        </div>
-        <div class="product">
-          <img src="./public/img/2.png" alt="" />
-          <p>Quần short kaki</p>
-          <span class="price">329.000 ₫</span>
-        </div>
-        <div class="product">
-          <img src="./public/img/2.png" alt="" />
-          <p>Quần short kaki</p>
-          <span class="price">449.000 ₫</span>
-        </div>
-        <div class="product">
-          <img src="./public/img/2.png" alt="" />
-          <p>Quần short kaki</p>
-          <span class="price">279.000 ₫</span>
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+          <div class="category-item">
+            <img src="./public/img/2.png" alt="Túi" class="img-fluid" />
+            <p>Túi</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="products">
-      <h2>Sản Phẩm Bán Chạy</h2>
-      <div class="product-list">
-        <div class="product">
-          <img src="./public/img/2.png" alt="" />
-          <p>Quần short kaki</p>
-          <span class="price">389.000 ₫</span>
+    <section class="container my-5">
+      <h2 class="text-center mb-4">Sản Phẩm</h2>
+      <div class="row g-4">
+        <div class="col-6 col-md-3">
+          <div class="card product-card h-100 text-center">
+            <a href="#" class="text-decoration-none text-dark">
+              <img
+                src="./public/img/2.png"
+                class="card-img-top"
+                alt="Quần short kaki"
+              />
+              <div class="card-body">
+                <p class="mb-1">Quần short kaki</p>
+                <span class="price">389.000 ₫</span>
+              </div>
+            </a>
+          </div>
         </div>
-        <div class="product">
-          <img src="./public/img/2.png" alt="" />
-          <p>Quần short kaki</p>
-          <span class="price">329.000 ₫</span>
+        <div class="col-6 col-md-3">
+          <div class="card product-card h-100 text-center">
+            <img
+              src="./public/img/2.png"
+              class="card-img-top"
+              alt="Quần short kaki"
+            />
+            <div class="card-body">
+              <p class="mb-1">Quần short kaki</p>
+              <span class="price">329.000 ₫</span>
+            </div>
+          </div>
         </div>
-        <div class="product">
-          <img src="./public/img/2.png" alt="" />
-          <p>Quần short kaki</p>
-          <span class="price">449.000 ₫</span>
+        <div class="col-6 col-md-3">
+          <div class="card product-card h-100 text-center">
+            <img
+              src="./public/img/2.png"
+              class="card-img-top"
+              alt="Quần short kaki"
+            />
+            <div class="card-body">
+              <p class="mb-1">Quần short kaki</p>
+              <span class="price">449.000 ₫</span>
+            </div>
+          </div>
         </div>
-        <div class="product">
-          <img src="./public/img/2.png" alt="" />
-          <p>Quần short kaki</p>
-          <span class="price">279.000 ₫</span>
+        <div class="col-6 col-md-3">
+          <div class="card product-card h-100 text-center">
+            <img
+              src="./public/img/2.png"
+              class="card-img-top"
+              alt="Quần short kaki"
+            />
+            <div class="card-body">
+              <p class="mb-1">Quần short kaki</p>
+              <span class="price">279.000 ₫</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <footer class="footer">
-      <div class="footer-content">
-        <div class="column">
-          <h3>Funio.</h3>
-          <p>623 Đường Nguyễn Trãi, Quận 5, TP.HCM</p>
+    <section class="container my-5">
+      <h2 class="text-center mb-4">Sản Phẩm Bán Chạy</h2>
+      <div class="row g-4">
+        <div class="col-6 col-md-3">
+          <div class="card product-card h-100 text-center">
+            <img
+              src="./public/img/2.png"
+              class="card-img-top"
+              alt="Quần short kaki"
+            />
+            <div class="card-body">
+              <p class="mb-1">Quần short kaki</p>
+              <span class="price">389.000 ₫</span>
+            </div>
+          </div>
         </div>
-        <div class="column">
-          <h4>Links</h4>
-          <p>About</p>
-          <p>Contact</p>
+        <div class="col-6 col-md-3">
+          <div class="card product-card h-100 text-center">
+            <img
+              src="./public/img/2.png"
+              class="card-img-top"
+              alt="Quần short kaki"
+            />
+            <div class="card-body">
+              <p class="mb-1">Quần short kaki</p>
+              <span class="price">329.000 ₫</span>
+            </div>
+          </div>
         </div>
-        <div class="column">
-          <h4>Help</h4>
-          <p>Payment Options</p>
-          <p>Privacy Policy</p>
+        <div class="col-6 col-md-3">
+          <div class="card product-card h-100 text-center">
+            <img
+              src="./public/img/2.png"
+              class="card-img-top"
+              alt="Quần short kaki"
+            />
+            <div class="card-body">
+              <p class="mb-1">Quần short kaki</p>
+              <span class="price">449.000 ₫</span>
+            </div>
+          </div>
         </div>
-        <div class="column">
-          <h4>Newsletter</h4>
-          <input type="email" placeholder="Email của bạn" />
-          <button>Đăng ký</button>
+        <div class="col-6 col-md-3">
+          <div class="card product-card h-100 text-center">
+            <img
+              src="./public/img/2.png"
+              class="card-img-top"
+              alt="Quần short kaki"
+            />
+            <div class="card-body">
+              <p class="mb-1">Quần short kaki</p>
+              <span class="price">279.000 ₫</span>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="footer-bottom">© 2025 Funio. All rights reserved.</div>
+    </section>
+
+    <footer class="bg-light py-5">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-12 col-md-3">
+            <h3>DICAN</h3>
+            <p>1112 Trịnh Văn Bô - Hà Nội</p>
+          </div>
+          <div class="col-6 col-md-3">
+            <h4>Links</h4>
+            <p class="mb-1">About</p>
+            <p class="mb-0">Contact</p>
+          </div>
+          <div class="col-6 col-md-3">
+            <h4>Help</h4>
+            <p class="mb-1">Payment Options</p>
+            <p class="mb-0">Privacy Policy</p>
+          </div>
+          <div class="col-12 col-md-3">
+            <h4>Newsletter</h4>
+            <div class="input-group">
+              <input
+                type="email"
+                class="form-control"
+                placeholder="Email của bạn"
+              />
+              <button class="btn btn-dark">Đăng ký</button>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom mt-4">© 2025 DICAN All rights reserved.</div>
+      </div>
     </footer>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
-        const userIcon = document.querySelector(".user-icon");
-        const dropdownMenu = document.querySelector(".dropdown-menu");
+        const searchIcon = document.getElementById("search-icon");
+        const searchInput = document.getElementById("search-input");
 
-        userIcon.addEventListener("click", function () {
-          dropdownMenu.style.display =
-            dropdownMenu.style.display === "block" ? "none" : "block";
+        // Khi click vào biểu tượng search thì hiện ô input
+        searchIcon.addEventListener("click", function (e) {
+          searchInput.classList.remove("d-none");
+          searchInput.focus();
+          e.stopPropagation();
         });
 
+        // Khi click ra ngoài ô input thì ẩn lại
         document.addEventListener("click", function (e) {
-          if (!e.target.closest(".user-dropdown")) {
-            dropdownMenu.style.display = "none";
+          if (
+            !e.target.closest("#search-input") &&
+            !e.target.closest("#search-icon")
+          ) {
+            searchInput.classList.add("d-none");
           }
+        });
+
+        // Ngăn ẩn khi click vào chính ô input
+        searchInput.addEventListener("click", function (e) {
+          e.stopPropagation();
         });
       });
     </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

@@ -59,7 +59,7 @@ class CategoryController {
 
     public function edit() {
         if (!isset($_GET['id'])) {
-            header("Location: index.php?mode=admin&action=list-category&error=Thiếu ID");
+            header("Location: index.php?mode=admin&action=list-category&error=khong tim thay id");
             exit;
         }
 
@@ -67,7 +67,7 @@ class CategoryController {
         $category = $this->categoryModel->find($id);
 
         if (!$category) {
-            header("Location: index.php?mode=admin&action=list-category&error=Không tìm thấy danh mục");
+            header("Location: index.php?mode=admin&action=list-category&error=khong tim thay danh muc");
             exit;
         }
 
@@ -92,7 +92,7 @@ class CategoryController {
 
             $this->categoryModel->update($id, $name, $image);
 
-            header("Location: index.php?mode=admin&action=list-category&success=Cập nhật thành công");
+            header("Location: index.php?mode=admin&action=list-category&success=Cap nhat khong thanh cong");
             exit;
         }
     }

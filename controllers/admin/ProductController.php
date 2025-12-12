@@ -63,7 +63,7 @@ class ProductController {
     
     public function edit() {
         if (!isset($_GET['id'])) {
-            header("Location: index.php?mode=admin&action=list-product&error=Thiếu ID");
+            header("Location: index.php?mode=admin&action=list-product&error=Khong tim thay id");
             exit;
         }
 
@@ -72,7 +72,7 @@ class ProductController {
         $categories = $this->categoryModel->getAll();
 
         if (!$product) {
-            header("Location: index.php?mode=admin&action=list-product&error=Không tìm thấy sản phẩm");
+            header("Location: index.php?mode=admin&action=list-product&error=Khong tim thay san pham");
             exit;
         }
 
@@ -100,7 +100,7 @@ class ProductController {
 
             $this->productModel->update($id, $name, $price, $description, $image, $category_id);
 
-            header("Location: index.php?mode=admin&action=list-product&success=Cập nhật thành công");
+            header("Location: index.php?mode=admin&action=list-product&success=Cap nhat thanh cong");
             exit;
         }
     }
