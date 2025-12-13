@@ -25,8 +25,9 @@ match ($action) {
 
     // Người dùng
     'list-user' => (new UserController)->index(),
-    'delete-user' => '',
-    'add-user' => '',
+    'delete-user' => (new UserController)->delete(),
+    'add-user' => (new UserController)->add(),
+    'store-user' => (new UserController)->store(),
     'edit-user' => '', //Hiển thị form sửa
     'update-user' => '',
 };

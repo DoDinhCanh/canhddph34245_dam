@@ -1,7 +1,7 @@
 <div class="tab-content active" id="products">
   <div class="d-flex flex-column mb-3">
   <h2 class="fw-bold mt-3 text-center">Quản lý Người Dùng</h2>
-  <a href="admin-form.html" class="btn btn-primary mt-2">+ Thêm người dùng</a>
+  <a href="<?= BASE_URL_ADMIN . '&action=add-user' ?>" class="btn btn-primary mt-2">+ Thêm người dùng</a>
 </div>
   <div class="card shadow rounded p-4 mb-4">
     <div class="table-responsive">
@@ -22,11 +22,12 @@
             <td><?= $user["id"] ?></td>
             <td><?= $user["username"] ?></td>
             <td><?= $user["email"] ?></td><td><?= $user["password"] ?></td>
-            <td><?= $user["role"] ?></td>
+            <td><?= $user["role_name"] ?></td>
             <td>
               <div class="d-flex gap-2 justify-content-center">
                 <button class="btn btn-primary btn-sm">Xem</button>
-                <button class="btn btn-danger btn-sm">Xóa</button>
+                <a href="<?= BASE_URL_ADMIN . '&action=delete-user&id=' . $user["id"] ?>"
+                onclick="return confirm('Ban chac chua ?');" class="btn btn-danger btn-sm">Xóa</a>
               </div>
             </td>
           </tr>
