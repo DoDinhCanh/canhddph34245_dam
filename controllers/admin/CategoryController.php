@@ -92,7 +92,7 @@ class CategoryController {
 
             $this->categoryModel->update($id, $name, $image);
 
-            header("Location: index.php?mode=admin&action=list-category&success=Cap nhat khong thanh cong");
+            header("Location: index.php?mode=admin&action=list-category");
             exit;
         }
     }

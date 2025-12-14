@@ -37,4 +37,12 @@ ORDER BY user.id DESC ";
         $stmt= $this->pdo->prepare($sql);
         $stmt->execute();
     }
+
+    public function update($id, $username, $password, $email, $role_id) {
+    $sql = "UPDATE user 
+            SET username = ?, password = ?, email = ?, role_id = ? 
+            WHERE id = ?";
+    $stmt = $this->pdo->prepare($sql);
+    $stmt->execute([$username, $password, $email, $role_id, $id]);
+}
 }

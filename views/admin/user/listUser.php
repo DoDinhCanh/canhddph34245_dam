@@ -25,7 +25,7 @@
             <td><?= $user["role_name"] ?></td>
             <td>
               <div class="d-flex gap-2 justify-content-center">
-                <button class="btn btn-primary btn-sm">Xem</button>
+                <a href="<?= BASE_URL_ADMIN . '&action=edit-user&id=' . $user["id"] ?>" class="btn btn-success btn-sm">Sửa</a>
                 <a href="<?= BASE_URL_ADMIN . '&action=delete-user&id=' . $user["id"] ?>"
                 onclick="return confirm('Ban chac chua ?');" class="btn btn-danger btn-sm">Xóa</a>
               </div>

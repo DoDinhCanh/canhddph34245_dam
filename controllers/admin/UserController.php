@@ -50,5 +50,31 @@ class UserController {
             die("Lỗi thêm tài khoản: " . $ex->getMessage());
         }
     }
+
+    public function edit() {
+        $id = $_GET['id'];
+        $user = $this->userModel->find($id);
+        $roles = $this->roleModel->getAll();
+
+        $view = 'user/updateUser';
+        $title = 'Cập nhật tài khoản';
+        $data = ['user' => $user, 'roles' => $roles];
+        require_once PATH_VIEW_ADMIN_MAIN;
+    }
+
+    public function update() {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $id   = $_POST['id'];
+            $username = $_POST['username'];
+            $password = $_POST['password'];
+            $email = $_POST['email'];
+            $role_id = $_POST['role_id'];
+
+            $this->userModel->update($id, $username, $password, $email, $role_id);
+
+            header("Location: index.php?mode=admin&action=list-user");
+            exit;
+        }
+    }
 }
  ?>

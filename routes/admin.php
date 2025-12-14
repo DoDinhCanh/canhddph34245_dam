@@ -28,6 +28,6 @@ match ($action) {
     'delete-user' => (new UserController)->delete(),
     'add-user' => (new UserController)->add(),
     'store-user' => (new UserController)->store(),
-    'edit-user' => '', //Hiển thị form sửa
-    'update-user' => '',
+    'edit-user' => (new UserController)->edit(), //Hiển thị form sửa
+    'update-user' => (new UserController)->update(),
 };
