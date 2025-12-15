@@ -85,7 +85,7 @@
         <div class="collapse navbar-collapse" id="mainNav">
           <ul class="navbar-nav ms-auto me-3">
             <li class="nav-item"><a class="nav-link" href="#">TRANG CHỦ</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">SẢN PHẨM</a></li>
+            <li class="nav-item"><a class="nav-link" href="<?= BASE_URL . '?action=products' ?>">SẢN PHẨM</a></li>
             <li class="nav-item"><a class="nav-link" href="#">DANH MỤC</a></li>
             <li class="nav-item"><a class="nav-link" href="#">PHỤ KIỆN</a></li>
             <li class="nav-item"><a class="nav-link" href="#">LIÊN HỆ</a></li>

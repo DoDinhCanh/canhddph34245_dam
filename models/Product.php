@@ -52,4 +52,35 @@ class Product extends BaseModel
         $stmt->execute();
         return $stmt->fetchAll();
     }
+
+    public function getAllWithCategory() {
+    $sql = "SELECT 
+                p.id,
+                p.name,
+                p.description,
+                p.price,
+                p.image,
+                p.category_id,
+                c.name AS category_name
+            FROM product AS p
+            LEFT JOIN category AS c 
+            ON p.category_id = c.id
+            ORDER BY p.id DESC;";
+    $stmt = $this->pdo->prepare($sql);
+    $stmt->execute();
+    return $stmt->fetchAll();
+    }
+
+    public function getByCategory($categoryId) {
+            $sql = "SELECT p.*, c.name AS category_name
+                    FROM product p
+                    LEFT JOIN category c ON p.category_id = c.id
+                    WHERE p.category_id = ?
+                    ORDER BY p.id DESC";
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute([$categoryId]);
+            return $stmt->fetchAll();
+    }
+
+
 }
